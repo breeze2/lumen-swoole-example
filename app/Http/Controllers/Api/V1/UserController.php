@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Api\V1;
 
-use Tymon\JWTAuth\Facades\JWTAuth;
+use App\Transformers\UserTransformer;
 
 class UserController extends BaseController
 {
     public function getInfo()
     {
-
-        var_dump(JWTAuth::user());
+        $user = $this->getAuthUser();
+        return $this->response->item($user, new UserTransformer);
     }
 }

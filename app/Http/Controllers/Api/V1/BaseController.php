@@ -14,12 +14,12 @@ class BaseController extends Controller
 
     protected function getAuth()
     {
-    	return Auth::guard($this->guard);
+        return Auth::guard($this->guard);
     }
 
     protected function getAuthUser()
     {
-    	return $this->getAuth()->user();
+        return $this->getAuth()->user();
     }
 
 }

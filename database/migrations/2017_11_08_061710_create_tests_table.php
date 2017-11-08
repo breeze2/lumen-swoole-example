@@ -20,6 +20,7 @@ class CreateTestsTable extends Migration
             $table->increments('id');
             $table->double('avalue', 20, 8);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

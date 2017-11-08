@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class TestsTableSeeder extends Seeder
@@ -11,6 +12,10 @@ class TestsTableSeeder extends Seeder
      */
     public function run()
     {
-        app('db')->table('tests')->insert(['avalue'=>microtime(true)]);
+        app('db')->table('tests')->insert([
+            'avalue'     => microtime(true),
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
     }
 }
