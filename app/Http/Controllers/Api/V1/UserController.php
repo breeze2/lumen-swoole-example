@@ -11,4 +11,11 @@ class UserController extends BaseController
         $user = $this->getAuthUser();
         return $this->response->item($user, new UserTransformer);
     }
+
+    public function getPayload()
+    {
+    	$auth = $this->getAuth();
+    	$payload = $auth->parseToken()->getPayload();
+    	return $this->response->array($payload);
+    }
 }

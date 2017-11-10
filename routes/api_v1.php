@@ -18,4 +18,5 @@ $router->group(['prefix' => '/auth'], function ($api) {
 
 $router->group(['prefix' => '/user', 'middleware' => 'api.auth'], function ($api) {
     $api->get('/info', 'UserController@getInfo');
+    $api->get('/payload', 'UserController@getPayload');
 });
