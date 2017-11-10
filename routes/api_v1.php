@@ -16,7 +16,7 @@ $router->group(['prefix' => '/auth'], function ($api) {
     $api->post('/refresh', 'AuthController@postRefresh');
 });
 
-$router->group(['prefix' => '/user', 'middleware' => 'api.auth'], function ($api) {
+$router->group(['prefix' => '/user', 'middleware' => ['api.auth', 'cors']], function ($api) {
     $api->get('/info', 'UserController@getInfo');
     $api->get('/payload', 'UserController@getPayload');
 });
